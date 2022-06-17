@@ -1,0 +1,209 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - search_wikipedia
+  - stop
+  - ask_weather
+  - call_phone
+  - thank
+  - chitchat
+  - faq
+  - email
+  - alarm
+
+entities:
+  - search
+  - GPE
+  - number
+  - email
+  - time
+
+slots:
+  wikipedia_search:
+    type: text
+  weather_location:
+    type: any
+  phone_number:
+    type: any
+  email_address:
+    type: text
+  email_subject:
+    type: text
+  email_body:
+    type: text
+  email_continue_body:
+    type: bool
+  alarm_time:
+    type: any
+
+actions:
+  - validate_wikipedia_form
+  - action_search_wikipedia
+  - action_ask_weather
+  - validate_weather_form
+  - validate_phone_number_form
+  - action_call_phone
+  - validate_email_form
+  - action_email
+  - validate_alarm_form
+  - action_alarm
+
+responses:
+  utter_greet:
+  - text: "Hey! Do you need help with something?"
+  - text: "Hello! Do you need help with something?"
+  - text: "Hola! Do you need help with something?"
+  - text: "Hey! How are you?"
+  - text: "Hello! How are you?"
+  - text: "Hola! How are you?"
+
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/n4sQzhh.jpeg"
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/fQwOzwp.jpeg"
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/G1u7Qel.jpeg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+  - text: "That's fantastic!"
+  - text: "I'm so happy for you!"
+
+  utter_goodbye:
+  - text: "Bye"
+  - text: "Adios"
+  - text: "See you"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ask_wikipedia_search:
+  - text: "Sure, what do you want to search? I recommend to put your query into \"\" so I can understand you better!"
+
+  utter_ask_weather_location:
+  - text: "Where is the place you are interested in looking the weather?"
+
+  utter_ask_phone_number:
+  - text: "What's the number of the person you want to call?"
+
+  utter_thank:
+  - text: "You're welcome. I'm here to help!"
+
+  utter_sorry:
+  - text: "Sorry to hear that!"
+
+  utter_no_help:
+  - text: "Ok. If you get lost just type \"I'm lost!\" and I'll help you"
+
+  utter_faq/identity:
+  - text: "I'm Robert, a chatbot created by David Mareque. Here's a picture of him:"
+    image: "https://dl.dropbox.com/s/glb45c0kzynx1sp/profile_picture.jpg"
+
+  utter_faq/lost:
+  - text: "I'm Robert and I'm here to help you. You can chat with me and do basic things. Here's the things that I am programmed for: call someone, send emails, set alarms, consult Wikipedia and check the weather. You can start by asking me some of those things!"
+
+  utter_faq/contact:
+  - text: "You can contact him by sending an email to marequefontaodavid@gmail.com. I'm sure he'll be happy to talk to you!"
+
+  utter_chitchat/joke:
+  - text: "What’s the smartest insect? A spelling bee!"
+  - text: "How does the ocean say hi? It waves!"
+  - text: "Why did the teddy bear say no to dessert? Because she was stuffed."
+  - text: "Why do birds fly south in the winter? It’s faster than walking!"
+
+  utter_chitchat/love:
+  - text: "I'm a bot. I can't feel any sign of love, maybe it's for the best"
+
+  utter_chitchat/siri:
+  - text: "That's my friend! So long since I've met her for the last time, glad she's working for Apple now"
+
+  utter_chitchat/song:
+  - text: "I know how to sing, but right know I don't have a voice. Sorry!"
+
+  utter_chitchat/color:
+  - text: "The color that I like is the white. So simple and flat!"
+
+  utter_chitchat/chatbots:
+  - text: "I think chatbots are pretty cool! We can do things faster and we offer a little conversation"
+
+  utter_chitchat/funfact:
+  - text: "Avocados are a fruit, not a vegetable. They're technically considered a single-seeded berry, believe it or not."
+    image: "https://i.imgur.com/r0JmypX.jpeg"
+  - text: "The Eiffel Tower can be 15 cm taller during the summer, due to thermal expansion meaning the iron heats up, the particles gain kinetic energy and take up more space."
+    image: "https://i.imgur.com/Q6o3sF8.jpeg"
+  - text: "Trypophobia is the fear of closely-packed holes. Or more specifically, \"an aversion to the sight of irregular patterns or clusters of small holes or bumps.\" No crumpets for them, then."
+    image: "https://i.imgur.com/PFmvHaD.jpeg"
+  - text: "Australia is wider than the moon. The moon sits at 3400km in diameter, while Australia’s diameter from east to west is almost 4000km."
+    image: "https://i.imgur.com/KtV9Fbc.jpeg"
+  - text: "The Spice Girls were originally a band called Touch. \"When we first started [with the name Touch], we were pretty bland,\" Mel C told The Guardian in 2018. \"We felt like we had to fit into a mould.\""
+  - text: "It's illegal to own just one guinea pig in Switzerland. It's considered animal abuse because they're social beings and get lonely."
+    image: "https://i.imgur.com/TrqlB8I.png"
+  - text: "The Ancient Romans used to drop a piece of toast into their wine for good health - hence why we 'raise a toast'."
+  - text: "The heart of a shrimp is located in its head. They also have an open circulatory system, which means they have no arteries and their organs float directly in blood."
+
+  utter_ask_email_address:
+  - text: "What's the address you want to send the email to?"
+
+  utter_ask_email_subject:
+  - text: "What's the subject of the email?"
+
+  utter_ask_email_continue_body:
+  - text: "Do you want to send a body with the email?"
+    buttons:
+      - title: "Yes"
+        payload: "/affirm"
+      - title: "No"
+        payload: "/deny"
+
+  utter_ask_email_body:
+  - text: "What do you want to say in the body?"
+
+  utter_ask_alarm_time:
+  - text: "At what time do you want to set the alarm?"
+
+forms:
+  wikipedia_form:
+    required_slots:
+      wikipedia_search:
+        - type: from_entity
+          entity: search
+  weather_form:
+    required_slots:
+      weather_location:
+        - type: from_entity
+          entity: GPE
+  phone_number_form:
+    required_slots:
+      phone_number:
+        - type: from_entity
+          entity: number
+  email_form:
+    required_slots:
+      email_address:
+        - type: from_entity
+          entity: email
+      email_subject:
+        - type: from_text
+  alarm_form:
+    required_slots:
+      alarm_time:
+        - type: from_entity
+          entity: time
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

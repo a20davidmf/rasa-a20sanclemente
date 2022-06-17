@@ -1,0 +1,278 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+    - good
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+# Stop Intent
+- intent: stop
+  examples: |
+    - never mind
+    - I'm not interested
+    - forget it
+    - stop
+    - please don't continue
+    - nevermind
+    - forgetit
+
+# Wikipedia Intent
+- intent: search_wikipedia
+  examples: |
+    - what is a [dog](search)?
+    - where is [America](search)?
+    - tell me everything you know about [rock music](search)
+    - what is the TV Show [Stranger Things](search)
+    - who is [Barack Obama](search)
+    - I want to know more about the person [Miley Cyrus](search)
+    - i don't know what a [parrot](search) is
+    - tell me about [Ireland](search)
+    - i want to know what a [cat](search) is
+    - what a [wolf](search) is?
+    - [Nintendo](search)
+    - what is the videogame [Mario Bros](search)?
+    - tell me what is [ACDC](search)
+    - search in wikipedia [smartphone](search)
+    - what about that movie [Parent Trap](search)
+    - where [Spain](search) is?
+    - search [Python](search)
+    - find [java](search)
+    - find something in Wikipedia
+    - can you tell me information about [Beyonce](search)?
+    - send me information about [Ariana Grande](search)
+    - can you find me something?
+    - find me information about [Lady Gaga](search)
+
+# Weather intent
+- intent: ask_weather
+  examples: |
+    - how's the weather
+    - i want to know the weather
+    - the temperature
+    - how is the weather in [Ourense](GPE)
+    - i want to know the weather in [Lugo](GPE)
+    - tell me the weather in [Hawaii](GPE)
+    - the weather in [New Zealand](GPE)?
+    - weather [Madrid](GPE)
+    - please, i would like to know the temperature in [Sanxenxo](GPE)
+    - if that's possible, i want to know the weather in [Tokyo](GPE)
+    - how is the weather in [Santiago de Compostela](GPE)
+    - i want to know the weather in [Santiago de Chile](GPE)
+    - tell me the weather in [Vigo](GPE)
+    - the weather in [Egypt](GPE)?
+    - weather [Sidney](GPE)
+    - please, i would like to know the temperature in [Houston](GPE)
+    - if that's possible, i want to know the weather in [Singapur](GPE)
+
+# Call phone
+- intent: call_phone
+  examples: |
+    - can you call someone
+    - call 646816276
+    - please call 567889073
+    - can you dial 911
+
+# Email intent
+- intent: email
+  examples: |
+    - can you email someone
+    - can you send an email
+    - email a20davidmf@iessanclemente.net with the subject "hello" and the body "Hi, this is a test"
+    - can you email a20davidmf@iessanclemente.net
+    - would you email to a20davidmf@iessanclemente.net with body "this is a test" and subject that says "hello"
+    - email a20davidmf@iessanclemente.net
+    - to a20davidmf@iessanclemente.net with subject "hello"
+
+# Alarm intent
+- intent: alarm
+  examples: |
+    - can you set an alarm for today at 5pm
+    - set an alarm at 21:05
+    - put an alarm for tomorrow at 8pm
+    - can you set an alarm?
+
+# Thank intent
+- intent: thank
+  examples: |
+    - thank you
+    - thank u so much
+    - thanks!
+
+# Chitchat intents
+
+- intent: chitchat/joke
+  examples: |
+    - tell me a joke
+    - do you know any joke
+    - i want to laugh
+    - are you funny?
+    - im bored
+
+- intent: chitchat/love
+  examples: |
+    - are you in love?
+    - marry me!
+    - i'm in love with you
+    - be my boyfriend
+    - do you have a girlfriend?
+    - do you fancy someone?
+
+- intent: chitchat/siri
+  examples: |
+    - do you know who is Siri?
+    - what can you tell me about Siri?
+    - what is your opinion about Siri?
+    - do you know Siri?
+    - who is Siri?
+    - do you know siri?
+
+- intent: chitchat/song
+  examples: |
+    - sing me a song
+    - can you sing me something
+    - sing me something!
+    - do you know how to sing?
+    - can you sing?
+    - what's your favourite song?
+
+- intent: chitchat/color
+  examples: |
+    - what's your favourite color?
+    - do you have a color that you like?
+    - any color you like?
+    - do you like a color?
+
+- intent: chitchat/chatbots
+  examples: |
+    - what's your opinion on chatbot?
+    - what do you think about your friends?
+    - what do you think about chatbot
+    - do you think something about chatbot
+    - what is your opinion on your friends?
+
+- intent: chitchat/funfact
+  examples: |
+    - tell me a fun fact
+    - can you give me a fun fact
+    - fun fact pls
+    - fun fact please
+    - funfact pleaseeee
+    - tell me a funfact!
+    - cna you tell me a funfact!
+
+# Faqs Intents
+
+- intent: faq/identity
+  examples: |
+    - who are you?
+    - present yourself
+    - introduce yourself
+    - who am i talking to?
+    - what is your name?
+    - how do the call you?
+
+- intent: faq/lost
+  examples: |
+    - im lost
+    - i don't know what to do
+    - can you help me?
+    - i need help!
+    - pls help me
+    - i'm a little lost
+
+- intent: faq/contact
+  examples: |
+    - how can I contact your owner?
+    - can you give me the email of the creator?
+    - can you give me the email of your creator?
+    - the email of the owner?
+    - how can I contact David Mareque?
+    - how can I contact David?
+    - contact David
