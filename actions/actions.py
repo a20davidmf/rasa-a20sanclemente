@@ -393,3 +393,23 @@ class ActionAlarm(Action):
                                          "alarmTime": new_alarm_time
                                      })
             return [SlotSet("alarm_time", None)]
+
+
+class ActionSearchGoogle(Action):
+
+    def name(self) -> Text:
+        return "action_search_google"
+
+    def run(
+        self,
+        dispatcher: "CollectingDispatcher",
+        tracker: Tracker,
+        domain: "DomainDict",
+    ) -> List[Dict[Text, Any]]:
+
+        message = tracker.latest_message.get("text")
+        dispatcher.utter_message(text=f"Here's what I've found about \"{message}\" on the Internet...",
+                                 json_message={
+                                     "intent": "search",
+                                     "search": message
+                                 })

@@ -1,10 +1,9 @@
 version: '3.4'
 services:
-  rasa-a20davimf:
+  rasa:
     image: rasa-bot:latest
     working_dir: /app
     build: "./"
-    restart: always
     volumes:
       - ./actions:/app/actions
       - ./data:/app/data
@@ -12,15 +11,13 @@ services:
     command: bash -c "python -m spacy download en_core_web_md && rm -rf models/* && rasa train && rasa run -p 5006 --enable-api --cors \"*\" --debug"
     ports:
       - "5006:5006"
-    public: true
     networks:
       - all
 
-  rasa-actions-a20davidmf:
+  rasa-actions:
     image: rasa-bot:latest
     working_dir: /app
     build: "./"
-    restart: always
     volumes:
     - ./actions:/app/actions
     command: bash -c "rasa run actions --debug"
@@ -29,7 +26,7 @@ services:
     networks:
     - all
 
-  duckling-server-a20davidmf:
+  duckling-server:
     image: rasa/duckling:latest
     ports:
     - "8000:8000"

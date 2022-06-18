@@ -54,6 +54,7 @@ actions:
   - action_email
   - validate_alarm_form
   - action_alarm
+  - action_search_google
 
 responses:
   utter_greet:
