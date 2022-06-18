@@ -27,7 +27,7 @@ pipeline:
       case_sensitive: false
     - name: "DucklingEntityExtractor"
     # url of the running duckling server
-      url: "http://duckling-server:8000"
+      url: "http://duckling-server-a20davidmf:8000"
     # dimensions to extract
       dimensions: ["number", "email", "time"]
     # Timeout for receiving response from http url of the running duckling server
