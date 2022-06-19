@@ -110,9 +110,32 @@ class ActionWeatherForm(FormValidationAction):
             return {"weather_location": message_parts[1]}
 
         weather_location = tracker.get_slot("weather_location")
+
+        weather_time = next(tracker.get_latest_entity_values("time"), None)
+
+        result = 0
+        if weather_time is not None:
+            d1 = datetime.strptime(weather_time, "%Y-%m-%dT%H:%M:%S.%f%z")
+            d2 = datetime.today()
+            result = d1.day - d2.day
+            print(result)
+
+
         if type(weather_location) is list:
-            return {"weather_location": weather_location[0]}
-        return {"weather_location": weather_location}
+            return {"weather_location": weather_location[0], "weather_time": result}
+        else:
+            return {"weather_location": weather_location, "weather_time": result}
+
+    def validate_weather_time(
+        self,
+        result: int,
+        dispatcher: "CollectingDispatcher",
+        tracker: "Tracker",
+        domain: "DomainDict",
+    ) -> Dict[Text, Any]:
+
+        print(result)
+        return {"weather_time": result}
 
     def validate_weather_location(
         self,
@@ -126,7 +149,8 @@ class ActionWeatherForm(FormValidationAction):
             return {"requested_slot": None}
 
         if weather_location is not None:
-            return {"weather_location": weather_location}
+            print("Weather: " + str(tracker.get_slot("weather_time")))
+            return {"weather_location": weather_location, "weather_time": tracker.get_slot("weather_time")}
 
 
 class ActionAskWeather(Action):
@@ -147,12 +171,13 @@ class ActionAskWeather(Action):
         if weather_location is None:
             dispatcher.utter_message("Ok, let's go back to the beginning")
         else:
-            result = search_weather(weather_location)
+            weather_time = tracker.get_slot("weather_time")
+            result = search_weather(weather_location,weather_time)
             if result == None:
                 dispatcher.utter_message("Sorry, I couldn't sort out that information")
             else:
                 dispatcher.utter_message(result)
-            return [SlotSet("weather_location", None)]
+            return [SlotSet("weather_location", None), SlotSet("weather_time", None)]
 
 
 class ActionPhoneNumberForm(FormValidationAction):

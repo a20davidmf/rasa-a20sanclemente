@@ -11,7 +11,6 @@ services:
     command: bash -c "python -m spacy download en_core_web_md && rm -rf models/* && rasa train && rasa run -p 5006 --enable-api --cors \"*\" --debug"
     ports:
       - "5006:5006"
-    public: true
     networks:
       - all
 

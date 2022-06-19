@@ -30,6 +30,8 @@ slots:
     type: text
   weather_location:
     type: any
+  weather_time:
+    type: any
   phone_number:
     type: any
   email_address:
@@ -60,10 +62,6 @@ responses:
   utter_greet:
   - text: "Hey! Do you need help with something?"
   - text: "Hello! Do you need help with something?"
-  - text: "Hola! Do you need help with something?"
-  - text: "Hey! How are you?"
-  - text: "Hello! How are you?"
-  - text: "Hola! How are you?"
 
 
   utter_cheer_up:
@@ -155,6 +153,9 @@ responses:
     image: "https://i.imgur.com/TrqlB8I.png"
   - text: "The Ancient Romans used to drop a piece of toast into their wine for good health - hence why we 'raise a toast'."
   - text: "The heart of a shrimp is located in its head. They also have an open circulatory system, which means they have no arteries and their organs float directly in blood."
+
+  utter_chitchat/wellbeing:
+  - text: "I'm good, thanks for asking!"
 
   utter_ask_email_address:
   - text: "What's the address you want to send the email to?"

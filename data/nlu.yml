@@ -150,6 +150,10 @@ nlu:
     - weather [Sidney](GPE)
     - please, i would like to know the temperature in [Houston](GPE)
     - if that's possible, i want to know the weather in [Singapur](GPE)
+    - how is it going to be the weather tomorrow in [Santiago de Compostela](GPE)
+    - how is it going to be the temperatures next monday
+    - hows the temperatures the sunday on [London](GPE)
+    - i want to know what weather will be on Sunday
 
 # Call phone
 - intent: call_phone
@@ -158,6 +162,10 @@ nlu:
     - call 646816276
     - please call 567889073
     - can you dial 911
+    - can i call a number
+    - can i phone someone
+    - phone
+    - call
 
 # Email intent
 - intent: email
@@ -177,6 +185,7 @@ nlu:
     - set an alarm at 21:05
     - put an alarm for tomorrow at 8pm
     - can you set an alarm?
+    - alarm
 
 # Thank intent
 - intent: thank
@@ -276,3 +285,13 @@ nlu:
     - how can I contact David Mareque?
     - how can I contact David?
     - contact David
+
+- intent: faq/wellbeing
+  examples: |
+    - how are you?
+    - how are you feeling?
+    - are you happy?
+    - are you sad?
+    - are you bored?
+    - how is it going for you?
+    - are you fine?
