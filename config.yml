@@ -40,7 +40,7 @@ pipeline:
       epochs: 100
       retrieval_intent: chitchat
     - name: FallbackClassifier
-      threshold: 0.7
+      threshold: 0.75
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
